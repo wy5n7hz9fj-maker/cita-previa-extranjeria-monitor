@@ -85,6 +85,7 @@ def main():
 
     firefox_options = Options()
     firefox_options.add_argument("--headless")
+    firefox_options.binary_location = "/usr/bin/firefox"
 
     startup_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     print(f"Starting up at: {startup_time}")
