@@ -23,7 +23,9 @@ def main():
     """
     startup_time: str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     print(f"Starting up at: {startup_time}")
-
+print("API:", bool(TELEGRAM_API_URL), TELEGRAM_API_URL)
+print("BOT:", bool(TELEGRAM_BOT_TOKEN))
+print("CHAT:", bool(TELEGRAM_CHAT_ID), TELEGRAM_CHAT_ID)
     # Build and run the application using the framework
     scraper = (
         ScraperBuilder()
