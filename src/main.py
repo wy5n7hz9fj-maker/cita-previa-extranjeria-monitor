@@ -3,6 +3,7 @@ Entry point for the Cita Previa Extranjeria Monitor.
 """
 
 import os
+import shutil
 from datetime import datetime
 
 from selenium.webdriver.common.by import By
