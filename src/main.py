@@ -27,7 +27,7 @@ print("API:", bool(TELEGRAM_API_URL), TELEGRAM_API_URL)
 print("BOT:", bool(TELEGRAM_BOT_TOKEN))
 print("CHAT:", bool(TELEGRAM_CHAT_ID), TELEGRAM_CHAT_ID)
     # Build and run the application using the framework
-    scraper = (
+scraper = (
         ScraperBuilder()
         .with_notifier(
             TelegramNotifier(
