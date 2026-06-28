@@ -6,6 +6,8 @@ import os
 from datetime import datetime
 
 from selenium.webdriver.common.by import By
+from selenium.webdriver.firefox.options import Options
+
 from termux_web_scraper.error_hook import ScreenshotErrorHook, NotificationErrorHook
 from termux_web_scraper.helpers import (
     select_option_by_text,
@@ -79,11 +81,17 @@ def verify_response(driver, state, notify):
 
 
 def main():
+    os.environ["MOZ_HEADLESS"] = "1"
+
+    firefox_options = Options()
+    firefox_options.add_argument("--headless")
+
     startup_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     print(f"Starting up at: {startup_time}")
 
     scraper = (
         ScraperBuilder()
+        .with_browser_options(firefox_options)
         .with_notifier(
             TelegramNotifier(
                 api_url=TELEGRAM_API_URL,
