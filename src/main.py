@@ -84,7 +84,7 @@ def verify_response(driver, state, notify):
 def main():
     os.environ["MOZ_HEADLESS"] = "1"
     
-     firefox_options = Options()
+    firefox_options = Options()
     firefox_options.add_argument("--headless")
 
     firefox_binary = shutil.which("firefox") or shutil.which("firefox-esr")
