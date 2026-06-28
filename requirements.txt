@@ -3,3 +3,4 @@ webdriver-manager
 python-dotenv
 pyyaml
 requests
+termux-web-scraper @ git+https://github.com/kpliuta/termux-web-scraper.git@0.1.0
