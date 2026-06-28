@@ -38,14 +38,15 @@ def get_env_var(name: str, default: Optional[str] = None) -> str:
 SCRAPER_OUTPUT_DIR: str = get_env_var("SCRAPER_OUTPUT_DIR", "/mnt/cita-previa-extranjeria-monitor")
 
 # Telegram API URL
-TELEGRAM_API_URL: str = get_env_var("TELEGRAM_API_URL")
+TELEGRAM_API_URL: str = "https://api.telegram.org"
+TELEGRAM_BOT_TOKEN: str = "8608053157:AAHyFL7iWvohJKSAOieiynfxwQnteMcN1qs"
+TELEGRAM_CHAT_ID: str = "197509744"
 
-# Telegram Bot Token
-TELEGRAM_BOT_TOKEN: str = get_env_var("TELEGRAM_BOT_TOKEN")
-
-# Telegram Chat ID
-TELEGRAM_CHAT_ID: str = get_env_var("TELEGRAM_CHAT_ID")
-
+PROVINCE: str = "Barcelona"
+OFFICE: str = "Rambla Guipúscoa"
+PROCEDURE: str = "TOMA DE HUELLAS (EXPEDICIÓN DE TARJETA)"
+NIE: str = "Y4828563A"
+FULL_NAME: str = "MARINA PETKIAVICHENE"
 # --- User Parameters ---
 
 # Province to search for appointments
