@@ -1,4 +1,7 @@
 {
+  "build": {
+    "buildCommand": "pip install selenium webdriver-manager python-dotenv pyyaml requests"
+  },
   "deploy": {
     "startCommand": "python src/main.py"
   }
