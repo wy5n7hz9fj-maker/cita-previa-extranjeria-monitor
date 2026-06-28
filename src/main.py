@@ -91,7 +91,7 @@ def main():
 
     scraper = (
         ScraperBuilder()
-        .with_browser_options(firefox_options)
+        .with_driver_options(firefox_options)
         .with_notifier(
             TelegramNotifier(
                 api_url=TELEGRAM_API_URL,
