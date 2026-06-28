@@ -47,7 +47,7 @@ scraper = (
         .build()
     )
 
-    scraper.run()
+scraper.run()
 
 
 def navigate_to_website(driver, state, notify):
