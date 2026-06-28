@@ -1,5 +1,5 @@
 [phases.setup]
-nixPkgs = ["python313", "firefox-esr", "geckodriver"]
+nixPkgs = ["python313", "chromium", "chromedriver"]
 
 [phases.install]
 cmds = ["pip install -r requirements.txt"]
