@@ -84,16 +84,14 @@ def verify_response(driver, state, notify):
 def main():
     os.environ["MOZ_HEADLESS"] = "1"
     
-    firefox_options = Options()
+     firefox_options = Options()
     firefox_options.add_argument("--headless")
 
     firefox_binary = shutil.which("firefox") or shutil.which("firefox-esr")
-          print("Firefox binary:", firefox_binary)
+    print("Firefox binary:", firefox_binary)
 
-if firefox_binary:
-    firefox_options.binary_location = firefox_binary
-    firefox_options.binary_location = "/usr/bin/firefox"
-
+    if firefox_binary:
+        firefox_options.binary_location = firefox_binary
     startup_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     print(f"Starting up at: {startup_time}")
 
