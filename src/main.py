@@ -7,7 +7,7 @@ import shutil
 from datetime import datetime
 
 from selenium.webdriver.common.by import By
-from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.chrome.options import Options
 
 from termux_web_scraper.error_hook import ScreenshotErrorHook, NotificationErrorHook
 from termux_web_scraper.helpers import (
@@ -82,22 +82,28 @@ def verify_response(driver, state, notify):
 
 
 def main():
-    os.environ["MOZ_HEADLESS"] = "1"
-    
-    firefox_options = Options()
-    firefox_options.add_argument("--headless")
+    chrome_options = Options()
+    chrome_options.add_argument("--headless=new")
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--disable-gpu")
 
-    firefox_binary = shutil.which("firefox") or shutil.which("firefox-esr")
-    print("Firefox binary:", firefox_binary)
+    chrome_binary = (
+        shutil.which("chromium")
+        or shutil.which("chromium-browser")
+        or shutil.which("google-chrome")
+    )
+    print("Chrome binary:", chrome_binary)
 
-    if firefox_binary:
-        firefox_options.binary_location = firefox_binary
+    if chrome_binary:
+        chrome_options.binary_location = chrome_binary
+
     startup_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     print(f"Starting up at: {startup_time}")
 
     scraper = (
         ScraperBuilder()
-        .with_driver_options(firefox_options)
+        .with_driver_options(chrome_options)
         .with_notifier(
             TelegramNotifier(
                 api_url=TELEGRAM_API_URL,
